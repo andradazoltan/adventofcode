@@ -10,7 +10,7 @@ int main(void) {
     std::vector<std::string> input;
 
     // Parse the input file
-    parse_file_lines("input.txt", input);
+    parse_file_lines("inputs/day3_input.txt", input);
 
     // PART 1 ************************************************
     // Turn on two batteries

@@ -9,7 +9,7 @@ int main(void) {
   std::vector<std::string> input;
 
   // Parse the input file
-  parse_file_lines("input.txt", input);
+  parse_file_lines("inputs/day1_input.txt", input);
 
   int32_t old_pos       = 50;
   int32_t curr_pos      = 50;

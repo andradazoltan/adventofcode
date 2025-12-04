@@ -9,7 +9,7 @@ int main(void) {
     std::vector<std::string> ranges;
 
     // Parse input
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day2_input.txt", std::ifstream::in);
 
     std::string s;
     std::getline(f, s);
