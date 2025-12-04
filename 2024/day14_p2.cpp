@@ -35,7 +35,7 @@ int main(void) {
     std::vector<pv_t> velocity;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day14_input.txt", std::ifstream::in);
 
     std::getline(f, s);
     while (f.good()) {

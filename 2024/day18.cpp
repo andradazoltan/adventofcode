@@ -91,9 +91,9 @@ int main(void) {
 
     // Parse the input file
 #ifdef TEST
-    std::ifstream f("test.txt", std::ifstream::in);
+    std::ifstream f("inputs/day18_test.txt", std::ifstream::in);
 #else
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day18_input.txt", std::ifstream::in);
 #endif
 
     int row = 0;

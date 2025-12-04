@@ -18,7 +18,7 @@ int main(void) {
     int sum = 0;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day3_input.txt", std::ifstream::in);
 
     std::getline(f, s);
     while (f.good()) {

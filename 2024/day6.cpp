@@ -139,7 +139,7 @@ int main(void) {
     int spaces_walked = 0;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day6_input.txt", std::ifstream::in);
 
     int x = 0;
     int y = 0;

@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
-#include <bits/stdc++.h>
 
 // Permutation Function
 void permute(std::vector<std::string> &permuted, std::string &s, int idx) {
@@ -29,11 +28,11 @@ void permute(std::vector<std::string> &permuted, std::string &s, int idx) {
 int main(void) {
     std::string s;
     
-    std::vector<char> operators{'s', 'm', 'c'};
+    std::vector<char> operators{'s', 'm'};
     long calib_result = 0;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day7_input.txt", std::ifstream::in);
 
     std::getline(f, s);
     while (f.good()) {
@@ -56,43 +55,51 @@ int main(void) {
         int num_spots = operands.size() - 1;
 
         for (int num_s = 0; num_s < operands.size(); num_s++) {
-            for (int num_c = 0; num_c < (operands.size() - num_s); num_c++) {
-                std::string base = "";
-                for (int i = 0; i < num_s; i++)
-                    base += 's';
-                for (int i = 0; i < num_c; i++)
-                    base += 'c';
-                for (int i = (num_s + num_c); i < num_spots; i++)
-                    base += 'm';
+            std::string base = "";
+            for (int i = 0; i < num_s; i++)
+                base += 's';
+            for (int i = num_s; i < num_spots; i++)
+                base += 'm';
 
-                // Permute string
-                permute(permuted, base, 0);
+            // Permute string if needed
+            if ((num_s == 0) || (num_s == num_spots)) {
+                permuted.push_back(base);
             }
+            else
+                permute(permuted, base, 0);
         }
 
         std::cout << "PERMUTE DONE\n";
 
         // Try each operator
         for (auto &perm : permuted) {
-            long curr_result = operands[0];
-
-            long prev_concat = 0;
+            long curr_result = 0;
             bool prev_sum = false;
 
             for (int i = 0; i < perm.size(); i++) {
                 if (perm[i] == 'm') {
-                    curr_result *= operands[i + 1];
+                    if (prev_sum || (i == 0))
+                        curr_result += operands[i];
+                    else
+                        curr_result *= operands[i];
+
+                    prev_sum = false;
                 }
 
                 if (perm[i] == 's') {
-                    curr_result += operands[i + 1];
-                }
-
-                if (perm[i] == 'c') {
-                    int mult = floor(log10(operands[i + 1]) + 1);
-                    curr_result = (curr_result * pow(10, mult)) + operands[i + 1];
+                    if (prev_sum || (i == 0))
+                        curr_result += operands[i];
+                    else
+                        curr_result *= operands[i];
+                    prev_sum = true;
                 }
             }
+
+            // Handle the last operand
+            if (prev_sum)
+                curr_result += operands[operands.size() - 1];
+            else
+                curr_result *= operands[operands.size() - 1];
 
             // Check if we have a match
             if (curr_result == result) {

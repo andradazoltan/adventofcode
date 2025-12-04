@@ -14,7 +14,7 @@ int main(void) {
     int sum_middle_wrong = 0;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day5_input.txt", std::ifstream::in);
 
     std::getline(f, s);
     while (f.good()) {

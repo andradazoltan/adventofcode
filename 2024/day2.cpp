@@ -14,7 +14,7 @@ int main(void) {
     int safe = 0;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day2_input.txt", std::ifstream::in);
 
     std::getline(f, s);
     while (f.good()) {

@@ -14,7 +14,7 @@ int main(void) {
     std::vector<std::tuple<bool, std::tuple<int, int>>> antinodes;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day8_input.txt", std::ifstream::in);
 
     int x = 0;
     int y = 0;

@@ -12,7 +12,7 @@ int main(void) {
     std::vector<std::tuple<int, int>> diskmap;
 
     // Parse the input file
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day9_input.txt", std::ifstream::in);
     
     int id = 0;
     bool free_space = false;

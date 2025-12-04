@@ -30,9 +30,9 @@ int main(void) {
 
     // Parse the input file
 #ifdef TEST
-    std::ifstream f("test.txt", std::ifstream::in);
+    std::ifstream f("inputs/day14_test.txt", std::ifstream::in);
 #else
-    std::ifstream f("input.txt", std::ifstream::in);
+    std::ifstream f("inputs/day14_input.txt", std::ifstream::in);
 #endif
 
     std::getline(f, s);
